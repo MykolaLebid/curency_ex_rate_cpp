@@ -9,7 +9,7 @@ include(FetchContent)
 FetchContent_Declare(
 	curl 
 	GIT_REPOSITORY https://github.com/curl/curl.git
-	GIT_TAG        master
+	GIT_TAG 2e9b725f67d49a9d7a1f053fe52dd4920c9ab1ad # curl-7.67.0
 )
 message(STATUS "fetch content of GIT_REPOSITORY https://github.com/curl/curl.git")
 

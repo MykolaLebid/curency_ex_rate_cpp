@@ -15,6 +15,9 @@ ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY
 ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
 
+#add funcions of CMake files from  CMake directory 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake")
+include(TargetProperties)
 
 # contains an "external" library we will link to
 add_subdirectory(external)
