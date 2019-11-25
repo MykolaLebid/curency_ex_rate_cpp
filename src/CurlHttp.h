@@ -3,14 +3,12 @@
 
 #include <curl/curl.h>
 #include <string>
-
 #include "Http.h"
 
 class CurlHttp: public Http {
 public:
    CurlHttp();
    virtual ~CurlHttp();
-
    void initialize();
    virtual std::string get(const std::string& url) const;
    static std::string Response();
@@ -18,7 +16,6 @@ public:
 
 private:
    CURL* curl;
-
    static std::string response_;
 };
 

@@ -1,9 +1,8 @@
-//#include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
 #include "Http.h"
 #include "CurrencyExchangeService.h"
-#include "CurrencyExchange.h"
+//#include "CurrencyExchange.h"
 
 class HttpStub: public Http {
 	public:
@@ -13,14 +12,9 @@ class HttpStub: public Http {
 	};
 };
 
-
-
 class TestCurrencyExchangeService: public testing::Test {
 public:
-	CurrencyExchangeServiceTemplate<HttpStub> currency_exchange_service;
-};
-
-
+	CurrencyExchangeServiceTemplate<HttpStub> currency_exchange_service; }; 
 TEST_F(TestCurrencyExchangeService, ReturnsCurrencyExRateForEURandUSD) {
 	std::string description = currency_exchange_service.
 		summaryDescription("EUR", "USD", "2010-10-08");
@@ -52,16 +46,15 @@ TEST_F(ACurrencyExchangeDescriptionService_WithHttpMock,
       .WillOnce(testing::Return(
 	R"({"base":"EUR",
             "rates":{
-               "USD":1.38},
+               "USD":1.3800},
              "date":"2010-10-08"})"));			      
    auto description = service.summaryDescription(
 		   ValidBaseCurrency,
 		   ValidExchangeCurrency, 
 		   ValidDate);
 
-   ASSERT_THAT(description, testing::Eq("2010-10-08: 1 EUR = 1.38 USD"));
+   ASSERT_THAT(description, testing::Eq("2010-10-08: 1 EUR = 1.3800 USD"));
 }
-
 
 const std::string ACurrencyExchangeDescriptionService::ValidBaseCurrency = "EUR";
 const std::string ACurrencyExchangeDescriptionService::ValidExchangeCurrency = "USD";

@@ -2,23 +2,21 @@
 #define CurrencyExchangeService_h
 
 #include <string>
-#include <memory>
+//#include <memory>
 #include "CurrencyExchange.h"
 #include "CurrencyExchangeExtractor.h"
 #include "Http.h"
-// START:CurrencyExchangeServiceTemplate
 template<typename HTTP>
 class CurrencyExchangeServiceTemplate {
 public:
    std::string summaryDescription(
          const std::string base,
 	 const std::string exchange,
-	 const std::string date) {
+	 const std::string date){
        auto request = createGetRequestUrl(base, exchange, date);
        auto response = get(request);
        return summaryDescription(response);
-   }
-
+   };
    // mocks in tests need the reference
    HTTP& http() {
       return http_;

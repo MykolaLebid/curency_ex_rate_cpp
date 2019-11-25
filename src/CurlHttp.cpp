@@ -1,9 +1,7 @@
 #include "CurlHttp.h"
-#include <string>
 
-using namespace std;
 
-string CurlHttp::response_;
+std::string CurlHttp::response_;
 
 CurlHttp::CurlHttp() : curl(NULL) {
 }
@@ -15,11 +13,13 @@ CurlHttp::~CurlHttp() {
 void CurlHttp::initialize() {
    curl_global_init(CURL_GLOBAL_ALL);
    curl = curl_easy_init();
-   curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &CurlHttp::writeCallback);
+   curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, 
+		  &CurlHttp::writeCallback);
+   curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, false);
 }
 
-string CurlHttp::get(const string& url) const {
-   response_ = "invalid request"; // TODO test
+std::string CurlHttp::get(const std::string& url) const {
+   response_ = "invalid request";
    curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
    curl_easy_perform(curl);
    curl_easy_cleanup(curl);
@@ -27,11 +27,12 @@ string CurlHttp::get(const string& url) const {
    return CurlHttp::Response();
 }
 
-string CurlHttp::Response() {
+std::string CurlHttp::Response() {
    return response_;
 }
 
 size_t CurlHttp::writeCallback(const char* buf, size_t size, size_t nMemb, void*) {
+   response_="";
    for (auto i = 0u; i < size * nMemb; i++) 
       response_.push_back(buf[i]);
    return size * nMemb;

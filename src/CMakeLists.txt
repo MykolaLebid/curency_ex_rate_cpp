@@ -1,20 +1,33 @@
-#add_executable(cpp_main "")
 add_library(currency_exchange_extractor
-	 CurrencyExchangeExtractor.cpp
-	    #	    HttpFactory.cpp
-	    #    CurrencyExService.cpp
-	    #CurlHttp.cpp)
-	    )
-#print_target_properties(jsoncpp_lib_static)
-target_include_directories(currency_exchange_extractor
-	PRIVATE
-	${PROJECT_SOURCE_DIR}/src)
+	    CurrencyExchangeExtractor.cpp)
+target_include_directories(
+	    currency_exchange_extractor
+	    PRIVATE
+	    ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries(
+	    currency_exchange_extractor
+ 	    PRIVATE #jsoncpp    
+	    jsoncpp_lib_static) 
 
-target_link_libraries(currency_exchange_extractor
-	PRIVATE
-	jsoncpp_lib_static
-	#jsoncpp	
-	)    
+add_library(curl_http
+	    CurlHttp.cpp)
+target_include_directories(
+	    curl_http
+	    PRIVATE
+	    ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries(  
+      	    curl_http
+            PRIVATE	
+	    libcurl)
+	    	
+    #add_library(currency_exchange_service 
+    #	    CurrencyExchangeService.cpp)
+    #target_include_directories(
+    #	    currency_exchange_service
+    #	    PRIVATE
+    #	    ${PROJECT_SOURCE_DIR}/src)
+
+
 #target_sources(cpp_main
 #  PRIVATE
 #  main.cpp
@@ -27,5 +40,4 @@ target_link_libraries(currency_exchange_extractor
 #else()
 #  message(STATUS "taget libcurl isn't exists")	
 #endif()
-
 

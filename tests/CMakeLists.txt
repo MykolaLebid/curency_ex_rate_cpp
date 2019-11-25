@@ -6,15 +6,9 @@
 	PRIVATE
 	MainTest.cpp
 	CurrencyExchangeServiceTest.cpp	
-	CurrencyExtractorTest.cpp
-	# CurrencyExService.cpp
-	# CurrencyExExtractor.cpp	
-
-	# tweet.cpp
-	# tweet_test.cpp
-
-	# tweet_collection.cpp
-	# tweet_collection_test.cpp
+	CurrencyExchangeExtractorTest.cpp
+	CurlHttpTest.cpp
+	CurrencyExchangeTest.cpp
 	)
 target_include_directories(test_currency_exchange 
 	                   PUBLIC 
@@ -23,6 +17,8 @@ target_link_libraries(test_currency_exchange
  	PRIVATE
  	gmock_main
 	currency_exchange_extractor
+	curl_http
+	#currency_exchange_service
  )
  enable_testing()
  
