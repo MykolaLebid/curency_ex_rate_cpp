@@ -2,10 +2,10 @@
 #define CurrencyExchangeService_h
 
 #include <string>
-//#include <memory>
 #include "CurrencyExchange.h"
 #include "CurrencyExchangeExtractor.h"
 #include "Http.h"
+#include "CurlHttp.h"
 template<typename HTTP>
 class CurrencyExchangeServiceTemplate {
 public:
@@ -53,7 +53,7 @@ private:
    HTTP http_;
 };
 
-class Http;
-typedef CurrencyExchangeServiceTemplate<Http> CurrencyExchangeService;
+class CurlHttp;
+typedef CurrencyExchangeServiceTemplate<CurlHttp> CurrencyExchangeService;
 
 #endif
