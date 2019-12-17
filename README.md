@@ -3,8 +3,8 @@ We organize a library for a connection with an internet resource https://api.rat
 
 You will need to download the source files and install them via Cmake.
 
-CURL and jsoncpp are demanded for this library.
-
+CURL and jsoncpp are demanded for this library (we need googletest for the testing)
+![alt text](https://github.com/MykolaLebid/currency_ex_rate_cpp/blob/master/dependency.png)
 
 An example with be added later.
 
