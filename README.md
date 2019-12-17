@@ -1,4 +1,10 @@
 # currency_ex_rate_cpp
-We organize well-tested interface with an internet resource https://api.ratesapi.io/api using C++ and cURL to get currency exchange rate.
+We organize a library for a connection with an internet resource https://api.ratesapi.io/api using C++ and cURL to get currency exchange rateifrom Europian Cental Bank.
 
-One can use this mechanisms to gat data from other RESTful API resourcies (ex.: https://github.com/public-apis/public-apis).
+You will need to download the source files and install them via Cmake.
+
+CURL and jsoncpp are demanded for this library.
+
+
+An example with be added later.
+
