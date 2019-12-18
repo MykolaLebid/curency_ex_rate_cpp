@@ -20,6 +20,7 @@ TEST_F(TestCurrencyExchangeService, ReturnsCurrencyExRateForEURandUSD) {
 		summaryDescription("EUR", "USD", "2010-10-08");
 	ASSERT_THAT(description, testing::Eq("2010-10-08: 1 EUR = 1.3874 USD"));
 }
+
 //------------------------------------------------------------
 class HttpMock: public Http {
 public:
@@ -55,6 +56,17 @@ TEST_F(ACurrencyExchangeDescriptionService_WithHttpMock,
 
    ASSERT_THAT(description, testing::Eq("2010-10-08: 1 EUR = 1.3800 USD"));
 }
+//--------------------------------------------------------
+
+class TestCurrencyExchangeServiceIntegrationTest: public testing::Test {
+public:
+	CurrencyExchangeService currency_exchange_service;}; 
+TEST_F(TestCurrencyExchangeServiceIntegrationTest, ReturnsCurrencyExRateForEURandUSD) {
+	std::string description = currency_exchange_service.
+		summaryDescription("EUR", "USD", "2010-10-08");
+	ASSERT_THAT(description, testing::Eq("2010-10-08: 1 EUR = 1.3874 USD"));
+}
+
 
 const std::string ACurrencyExchangeDescriptionService::ValidBaseCurrency = "EUR";
 const std::string ACurrencyExchangeDescriptionService::ValidExchangeCurrency = "USD";

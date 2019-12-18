@@ -15,7 +15,8 @@ target_include_directories(test_currency_exchange
 			   ${CMAKE_CURRENT_SOURCE_DIR}/../src)
 target_link_libraries(test_currency_exchange
  	PRIVATE
- 	gmock_main
+	#gmock_main
+	GMock::main
 	currency_exchange_extractor
 	curl_http
 	#currency_exchange_service
