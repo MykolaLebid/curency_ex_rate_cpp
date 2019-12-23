@@ -1,3 +1,4 @@
+
 set(CPACK_PACKAGE_NAME 		CurrencyExchangeRatePackage)
 set(CPACK_PACKAGE_VENDOR 	CrazyBirdCompany)
 set(CPACK_PACKAGE_DESCRIPTION_SUMMERY "CPACK get currency exchange rate project")
@@ -8,9 +9,11 @@ set(CPACK_PACKAGE_VERSION_PATCH ${PROJECT_VERSION_PATCH})
 set(CPACK_VERBATIM_VARIABLES YES)
 set(CPACK_PACKAGE_DESCRIPION_FILE ${CMAKE_CURRENT_LIST_DIR}/Description.txt)
 set(CPACK_SOURCE_IGNORE_FILES
+    /.git
     /\\.git/
     \\.swp
     \\.orig
+    /.*build*.*
     /CMAKELISTS\\.txt\\.user
     )
 set(CPACK_RESOURCE_FILE_WELCOME ${CMAKE_CURRENT_LIST_DIR}/Welcome.txt)
