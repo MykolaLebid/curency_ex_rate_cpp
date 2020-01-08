@@ -22,8 +22,7 @@ target_link_libraries(
             PRIVATE	
 	    CURL::libcurl)
 
-#head-only library 
-add_library(currency_exchange_service 
+add_library(currency_exchange_service
 	    CurrencyExchangeService.cpp)
 target_include_directories(
 	    currency_exchange_service
@@ -73,7 +72,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/../CMake/currency_exchangeConfig.cmak
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
 	"${CMAKE_CURRENT_SOURCE_DIR}/../CMake/currency_exchangeConfigVersion.cmake"
-	VERSION ${PROJECT_VERSION}
+	VERSION ${currency_rate_VERSION}
 	COMPATIBILITY AnyNewerVersion)
 
 install(FILES 
